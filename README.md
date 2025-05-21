@@ -22,3 +22,31 @@ Located in the main script, the system continuously checks with the backend if t
 
 ```python
 is_running = server.get_program_status()
+```
+If True, it starts detection using a new thread:
+threading.Thread(target=detection.right_lane, daemon=True).start()
+
+If False, it stops the detection.
+
+This loop checks the status every 180 seconds.
+
+### 2. **Detection Module (detection.py)**
+🔍 Initialization
+Loads a YOLO model using YOLO("yolo11l.pt")
+
+Opens 4 camera streams
+
+Prepares a region of interest (ROI) mask using polygon points to crop the relevant area of the frame.
+
+👁️ Detection Loop
+Reads frames from each camera.
+
+Applies the YOLO model to detect people in each frame.
+
+Calculates total number of people from all 4 streams.
+
+Sends the count to the backend using:
+
+python
+Copy
+Edit
