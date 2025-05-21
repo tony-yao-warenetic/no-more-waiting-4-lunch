@@ -49,7 +49,7 @@ server.update_line_status(total_people_count, isLeft=False)
 🛑 Exit
 Releases all camera resources once the loop ends or the program is stopped.
 
-###3. **Server Communication (server.py)**
+### 3. **Server Communication (server.py)**
 ✅ get_program_status()
 Checks whether the detection should be running (controlled by a backend switch).
 
